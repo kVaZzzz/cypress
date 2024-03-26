@@ -1,0 +1,15 @@
+{
+  "main_url": "https://freelance.ru/login/?return_url=%2Fregistration%2Flight",
+  "reg_url" : "https://freelance.ru/registration/light",
+  "filters_url": "https://freelance.ru/project/search/pro",
+  "none_existent_login": "abuasd12",
+  "login": "kVaZ21",
+  "none_valid_login": "12kVaZ21",
+  "password": "Password1",
+  "none_existent_password": "asddq21",
+  "name": "Евгений",
+  "surname": "Иванов",
+  "none_existent_email": "elokhov.2015@mail.ru",
+  "none_valid_email": "@asd",
+  "find_vacancy": "разработка"
+}
