@@ -11,6 +11,7 @@ describe('Cypress Tests', () => {
             cy.get('#passwd')
                 .type(data.password)
 
+            cy.log('Пауза для капчи')
                 .pause()
 
             cy.log('Клик по кнопке "Войти"')
@@ -18,6 +19,10 @@ describe('Cypress Tests', () => {
                 .click()
 
                 .wait(5000)
+
+            cy.log('Клик по кнопке "Продолжить"')
+            cy.get('#returnUrlBtn')
+                .click()
 
         })
     })
@@ -34,11 +39,16 @@ describe('Cypress Tests', () => {
             cy.get('#passwd')
                 .type(data.none_existent_password)
 
+            cy.log('Пауза для капчи')
                 .pause()
 
             cy.log('Клик по кнопке "Войти"')
             cy.get('.col_c > .btn')
                 .click()
+
+            cy.log('Проверка на появление ошибки')
+            cy.get('.msg_error')
+                .should('exist')
 
         })
     })

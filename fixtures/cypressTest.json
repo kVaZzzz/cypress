@@ -2,6 +2,9 @@
   "main_url": "https://freelance.ru/login/?return_url=%2Fregistration%2Flight",
   "reg_url" : "https://freelance.ru/registration/light",
   "filters_url": "https://freelance.ru/project/search/pro",
+  "freelancers_catalog": "https://freelance.ru/freelancers/",
+  "main_page_url": "https://freelance.ru/",
+  "portfolio_url": "https://freelance.ru/setup/?cmd=myportfolio",
   "none_existent_login": "abuasd12",
   "login": "kVaZ21",
   "none_valid_login": "12kVaZ21",
@@ -11,5 +14,10 @@
   "surname": "Иванов",
   "none_existent_email": "elokhov.2015@mail.ru",
   "none_valid_email": "@asd",
-  "find_vacancy": "разработка"
+  "find_vacancy": "разработка",
+  "max_cost": "250000",
+  "min_cost": "100000",
+  "stop_word": "разработка",
+  "new_name": "Адрей",
+  "new_surname": "Титов"
 }

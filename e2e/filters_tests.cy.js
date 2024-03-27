@@ -1,6 +1,6 @@
 describe('Cypress tests', () => {
 
-    it('Use filter category', () => {
+    it('Filter category', () => {
         cy.fixture('cypressTest').then(data => {
             cy.log('Переход на страницу авторизации')
             cy.visit(data.main_url)
@@ -12,7 +12,7 @@ describe('Cypress tests', () => {
             cy.get('#passwd')
                 .type(data.password)
 
-            cy.log('Ввод капчи')
+            cy.log('Паузка для капчи')
                 .pause()
 
             cy.log('Клик по кнопке "Войти"')
@@ -20,7 +20,8 @@ describe('Cypress tests', () => {
                 .click()
 
             cy.log('Клик по кнопке "Продолжить"')
-                .pause()
+            cy.get('#returnUrlBtn')
+                .click()
 
             cy.log('Клик по кнопке "Найти работу"')
             cy.get('.col-sm-6.m-b-1 > .btn')
@@ -41,22 +42,50 @@ describe('Cypress tests', () => {
         })
     })
 
-    it('Use filter category', () => {
+    it('Filter, min/max cost test', () => {
         cy.fixture('cypressTest').then(data => {
 
             cy.log('Переход на страницу фильтров')
             cy.visit(data.filters_url)
 
-            cy.log('Клик по фильтру')
-            cy.get('#searchpro-category > :nth-child(1) > input')
+            cy.log('Ввод минимальной оплаты')
+            cy.get('#searchpro-min_cost')
+                .type(data.min_cost)
+
+            cy.log('Ввод максимальной оплаты')
+            cy.get('#searchpro-max_cost')
+                .type(data.max_cost)
+
+            cy.log('Клик на кнопку "Стоимость не указана"')
+            cy.get('#searchpro-open_cost')
                 .click()
+
+            cy.log('Клик по кнопке "Применить"')
+            cy.get('#searchBtn')
+                .click()
+
+                .wait(7000)
+        })
+    })
+
+    it('Filter, stop_word test', () => {
+        cy.fixture('cypressTest').then(data => {
+
+            cy.log('Переход на страницу фильтров')
+            cy.visit(data.filters_url)
+
+            cy.log('Ввод стоп-слова')
+            cy.get('#searchpro-sexclude')
+                .type(data.stop_word)
 
                 .wait(1000)
 
             cy.log('Клик по кнопке "Применить"')
             cy.get('#searchBtn')
                 .click()
+
         })
     })
+
 
 });

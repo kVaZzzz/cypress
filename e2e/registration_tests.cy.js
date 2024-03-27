@@ -13,7 +13,7 @@ describe('Cypress Tests', () => {
                 .type(data.none_existent_email)
 
 
-            cy.log('Клик по кнопке радио "Я фрилансер"')
+            cy.log('Клик по checkbox "Я фрилансер"')
             cy.get('#registration-susertype > :nth-child(1) > input')
                 .click()
 
@@ -33,7 +33,7 @@ describe('Cypress Tests', () => {
             cy.get('#registration-spasswordrepeat')
                 .type(data.none_existent_password)
 
-            cy.log('Клик по кнопке пользовательского соглашения')
+            cy.log('Клик по checkbox "Пользовательское соглашение"')
             cy.get('.checkbox > label')
                 .click()
             cy.pause()
@@ -61,6 +61,9 @@ describe('Cypress Tests', () => {
             cy.get('#registration-semail')
                 .type(data.none_valid_email)
 
+            cy.log('Проверка на ошибку об неправильной почте')
+            cy.get(':nth-child(2) > :nth-child(2) > .form-group > .help-block')
+                .should('exist')
 
             cy.log('Клик по кнопке radio "Я фрилансер"')
             cy.get('#registration-susertype > :nth-child(1) > input')
@@ -101,6 +104,10 @@ describe('Cypress Tests', () => {
             cy.log('Ввод невалидного логина')
             cy.get('#registration-slogin')
                 .type(data.none_valid_login)
+
+            cy.log('Проверка на ошибку об неправильном логине')
+            cy.get(':nth-child(2) > :nth-child(1) > .form-group > .help-block')
+                .should('exist')
 
             cy.log('Ввод почты')
             cy.get('#registration-semail')
